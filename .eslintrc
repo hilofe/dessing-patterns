@@ -1,0 +1,30 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "globals": {
+    "window": true,
+    "describe": true,
+    "it":true,
+    "expect": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    no-undef: "off",
+    "max-len": [
+      "error",
+      120,
+      {
+        "ignoreStrings": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+  }
+}

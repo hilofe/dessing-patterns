@@ -1,40 +1,38 @@
 import Singleton from './singleton';
 
 describe('Singleton', () => {
-    it('Object should be referred to the same instance', () => {
-        const obj1 = new Singleton();
-        const obj2 = new Singleton();
+  it('Object should be referred to the same instance', () => {
+    const obj1 = new Singleton();
+    const obj2 = new Singleton();
 
-        expect(obj1 === obj2).toBeTruthy();
-    });
+    expect(obj1 === obj2).toBeTruthy();
+  });
 
-    it('Changed value is available from any insatnce', () => {
-        const obj1 = new Singleton();
-        const obj2 = new Singleton();
+  it('Changed value is available from any insatnce', () => {
+    let finalValue = null;
 
-        obj1.increaseValue();
-        obj1.increaseValue();
-        obj1.increaseValue();
+    const obj1 = new Singleton();
+    const obj2 = new Singleton();
 
-        const finalValue = obj2.getValue();
+    obj1.increaseValue();
+    obj1.increaseValue();
+    obj1.increaseValue();
 
-        expect(finalValue).toEqual(3);
-    });
+    finalValue = obj2.getValue();
 
-    it('Values from two objects should be the same', () => {
-        const obj1 = new Singleton();
-        const obj2 = new Singleton();
+    expect(finalValue).toEqual(3);
+  });
 
+  it('Values from two objects should be the same', () => {
+    const obj1 = new Singleton();
+    const obj2 = new Singleton();
 
-        expect(obj1.getValue() === obj2.getValue()).toBeTruthy();
+    expect(obj1.getValue() === obj2.getValue()).toBeTruthy();
 
-        obj1.increaseValue();
-        obj2.increaseValue();
-        obj2.increaseValue();
+    obj1.increaseValue();
+    obj2.increaseValue();
+    obj2.increaseValue();
 
-        expect(obj1.getValue() === obj2.getValue()).toBeTruthy();
-    });
-})
-
-
-
+    expect(obj1.getValue() === obj2.getValue()).toBeTruthy();
+  });
+});

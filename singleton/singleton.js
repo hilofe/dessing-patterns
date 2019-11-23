@@ -1,22 +1,20 @@
 class Singleton {
-    static value = 0;
-    static instance = null;
-
-    constructor() {
-            if(!Singleton.instance) {
-                Singleton.instance = this;
-            }
-
-            return Singleton.instance;
+  constructor() {
+    if (!Singleton.instance) {
+      Singleton.value = 0;
+      Singleton.instance = this;
     }
 
-    getValue() {
-        return Singleton.value;
-    }
+    return Singleton.instance;
+  }
 
-    increaseValue() {
-        Singleton.value += 1;
-    }
+  increaseValue() {
+    Singleton.value++;
+  }
+
+  getValue() {
+    return Singleton.value;
+  }
 }
 
 export default Singleton;
